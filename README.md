@@ -1,4 +1,4 @@
-# Примеры кода на языке Python
+### Примеры кода на языке Python
 
 Пример [парсера](https://github.com/0mechanic/Code_Python/blob/main/parser.py)<br>
 Пример реализации [многопоточности](https://github.com/0mechanic/Code_Python/blob/main/potok.py)<br>
