@@ -1,11 +1,21 @@
 import time
 import argparse
 import logging
+import sys
+import signal
 
 logger = logging.getLogger('test_daemon')
 logger.setLevel(logging.INFO)
 formatstr = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 formatter = logging.Formatter(formatstr)
+
+def terminate(signalNumber, frame):
+	"""
+	Здесь мы можем обработать завершение нашего приложения
+	Главное не забыть в конце выполнить выход sys.exit()
+	"""
+    logger.info(f'Recieved {signalNumber}')
+    sys.exit()
 
 def do_something():
 	"""
@@ -23,6 +33,8 @@ if __name__ == "__main__":
 	# log файла, через параметр -l /путь_к_файлу/файл.log
     parser.add_argument('-l', '--log-file', default='/home/user/test_daemon.log')
     args = parser.parse_args()
+	
+	signal.signal(signal.SIGTERM, terminate)
 
     fh = logging.FileHandler(args.log_file)
     fh.setLevel(logging.INFO)
