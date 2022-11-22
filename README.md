@@ -1,3 +1,3 @@
 # Примеры кода на языке Python
 
-[Парсер] (https://github.com/0mechanic/Code_Python/blob/main/parser.py)
+Пример [парсера](https://github.com/0mechanic/Code_Python/blob/main/parser.py)
